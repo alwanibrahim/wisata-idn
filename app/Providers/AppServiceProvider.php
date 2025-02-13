@@ -21,5 +21,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Paginator::useBootstrapFive();
+        // VerifyCsrfToken::except([
+        //     'products/*', // Semua request ke /products tidak butuh CSRF
+        // ]);
     }
 }

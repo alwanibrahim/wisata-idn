@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('name');
             //description
             $table->text('description')->nullable();
-            $table->integer('price');
-            $table->integer('stock');
+            $table->integer('price')->default(5000);
+            $table->integer('stock')->default(0);
             $table->foreignId('category_id')->constrained('categories');
             $table->string('image')->nullable();
             //status string
