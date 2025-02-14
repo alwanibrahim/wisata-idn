@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
 
 //! auth
 Route::post('/register', [AuthController::class, 'register']); //* ini untuk register
@@ -24,6 +25,10 @@ Route::middleware('auth:sanctum')->prefix('categories')->group(function () {
 
 //!product
 Route::middleware('auth:sanctum')->apiResource('products', ProductController::class);
+
+//!order
+Route::middleware('auth:sanctum')->apiResource('orders', OrderController::class);
+
 
 
 //? bisa jg menggunkan cara yg lebih ringkas seperti kita buat route resouces seperti yg dulu pas final project

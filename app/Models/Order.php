@@ -21,11 +21,11 @@ class Order extends Model
 
     public function orderItems()
     {
-        return $this->hasMany(OrderItem::class);
+        return $this->hasMany(OrderItem::class,'order_id');
     }
 
     public function cashier()
     {
-        return $this->belongsTo(User::class, 'cashier_id');
+        return $this->belongsTo(User::class, 'cashier_id');//jadi.. orderan ini cumann memiliki satu kasir (uset)
     }
 }

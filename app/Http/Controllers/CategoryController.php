@@ -20,7 +20,7 @@ class CategoryController extends Controller
     {   
         //*untuk menyimpan
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255|unique:categories'
+            'name' => 'required|string|max:255'
         ]);
 
         if ($validator->fails()) {

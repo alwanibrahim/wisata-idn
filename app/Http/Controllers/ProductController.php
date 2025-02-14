@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Helpers\ResponseHelper;
 
 class ProductController extends Controller
 {
@@ -37,10 +38,7 @@ class ProductController extends Controller
 
         $product = Product::create($request->all());
 
-        return response()->json([
-            'message' => 'Produk berhasil ditambahkan!',
-            'product' => $product
-        ], 201);
+        return ResponseHelper::sendResponse('sukses','product telah ditambahkan',null,201);
     }
 
     // Menampilkan detail produk
@@ -66,18 +64,14 @@ class ProductController extends Controller
 
         $product->update($request->all());
 
-        return response()->json([
-            'message' => 'Produk berhasil diperbarui!',
-            'product' => $product
-        ]);
+        return ResponseHelper::sendResponse('sukses','product telah diupdate',$product,201);
+
     }
 
     // Menghapus produk
     public function destroy(Product $product)
     {
         $product->delete();
-        return response()->json([
-            'message' => 'Produk berhasil dihapus!'
-        ]);
+        return ResponseHelper::sendResponse('ok','product berhasil dihapus');
     }
 }
